@@ -225,7 +225,7 @@ def classify(model, data, tfidf):
     print('Labelling..')
     for i, label in enumerate(label_names):
         data[f'predicted_{label}'] = predictions[:, i]
-    data.to_json('sample_cls1.json', orient='records', lines=True)
+    data.to_json('sample_clf.json', orient='records', lines=True)
     return
 
 
