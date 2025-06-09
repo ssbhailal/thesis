@@ -1,6 +1,5 @@
-# Thesis
+# The Role of Readers' Perception Elements in Persuasive Communication
 
-Thesis Repository: The Role of Readers' Perception Elements in Persuasive Communication
 This repository contains the code, data samples, and analysis scripts for my bachelor thesis investigating the role of storytelling and narrative perception elements in persuasive discussions on Reddit’s Change My View (CMV).
 
 Contents
