@@ -9,6 +9,7 @@ df <- stream_in(file("sample_clf.json"))
 df_train <- fromJSON(file("golden-standard-train.json"))
 df_test <- fromJSON(file("golden-standard-test.json"))
 df$delta_num <- as.numeric(df$delta)
+df$story_num <- as.numeric(df$predicted_story)
 # tables train
 table(df_train$suspense)
 table(df_train$curiosity)
