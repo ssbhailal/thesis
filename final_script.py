@@ -230,9 +230,9 @@ def classify(model, data, tfidf):
 
 
 def main(argv):
-    train_file = 'golden-standard-train.json'
-    test_file = 'golden-standard-test.json'
-    data_file = 'threads1000_format.json'
+    train_file = 'data/golden-standard-train.json'
+    test_file = 'data/golden-standard-test.json'
+    data_file = 'data/threads1000_format.json'
     if len(sys.argv) < 2:
         print('Please specify how many labels you want the model to train on. Options are 2, 3 and 5')
         exit(-1)
@@ -244,12 +244,12 @@ def main(argv):
         train_data = conversion(train_data, mapping)
         test_data = conversion(test_data, mapping)
     model = create_model()
-    # trained_model, tfidf = train_test(model, train_data, test_data)
+    trained_model, tfidf = train_test(model, train_data, test_data)
     baseline(test_data)
     # Automatic classification
     discussions1k = load_data(data_file)
     data = process(discussions1k)
-    classify(model, data, tfidf)
+    classify(trained_model, data, tfidf)
     
 
 
