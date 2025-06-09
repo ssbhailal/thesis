@@ -244,7 +244,7 @@ def main(argv):
         train_data = conversion(train_data, mapping)
         test_data = conversion(test_data, mapping)
     model = create_model()
-    trained_model, tfidf = train_test(model, train_data, test_data)
+    # trained_model, tfidf = train_test(model, train_data, test_data)
     baseline(test_data)
     # Automatic classification
     discussions1k = load_data(data_file)

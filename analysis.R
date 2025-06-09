@@ -4,10 +4,10 @@ library(jsonlite)
 library(xtable)
 library(vcd)
 library(effsize)
-df <- stream_in(file("C:/Users/sbhai/OneDrive/Documenten/RUG/thesis/thesis/sample_clf.json"))
-df_train <- fromJSON(file("C:/Users/sbhai/OneDrive/Documenten/RUG/thesis/golden-standard-train.json"))
-df_test <- fromJSON(file("C:/Users/sbhai/OneDrive/Documenten/RUG/thesis/golden-standard-test.json"))
-df$story_num <- ifelse(df$predicted_story == "Story", 1, 0)
+setwd("data/")
+df <- stream_in(file("sample_clf.json"))
+df_train <- fromJSON(file("golden-standard-train.json"))
+df_test <- fromJSON(file("golden-standard-test.json"))
 df$delta_num <- as.numeric(df$delta)
 # tables train
 table(df_train$suspense)
@@ -32,6 +32,7 @@ table(combined$surprise)
 table(df$predicted_suspense)
 table(df$predicted_curiosity)
 table(df$predicted_surprise)
+table(df$predicted_story)
 
 
 xtable(table(df$predicted_story, df$delta))
@@ -94,6 +95,7 @@ cor.test(df$story_num, df$delta_num, method = "pearson")
 df$interaction_csr <- df$predicted_curiosity * df$predicted_surprise
 df$interaction_ss <- df$predicted_suspense * df$predicted_surprise
 df$interaction_csn <- df$predicted_curiosity * df$predicted_suspense
+
 cor.test(df$interaction_csr, df$delta_num, method = "pearson")
 cor.test(df$interaction_ss, df$delta_num, method = "pearson")
 cor.test(df$interaction_csn, df$delta_num, method = "pearson")
